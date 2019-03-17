@@ -1,0 +1,87 @@
+/* @font-face {
+  font-family: Dusha;
+	src:  url('webfont.woff') format('woff'),
+	url('Dusha.ttf') format('truetype');
+} */
+*{
+	font-family: 'Calibri';
+}
+.emo{
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.emo img{
+	height: 20px;
+	width: 30px;
+}
+.wrapper{
+	width: 100%;
+	max-width:60rem;
+	margin: 0 auto;
+	/* outline: 1px solid green; */
+}
+h1{
+	/* font-family: 'Dusha'; */
+}
+#table_container{
+	width: 100%;
+	max-width:40rem;
+	/* outline: 1px solid blue; */
+	margin:15% auto 0 auto;
+	background: #e6e6e6;
+}
+table {
+    border-collapse: collapse;
+		width: 100%;
+		float: left;
+}
+table, th, td {
+    border: 1px solid black;
+}
+th, td{
+	text-align: center;
+}
+th {
+    height: 50px;
+}
+.clear{
+	clear: both;
+}
+.grey{
+	background: #e6e6e6;
+}
+.green{
+	background: #1aff66;
+}
+.gold{
+	background: #ffff1a;
+}
+.red{
+	background: red;
+}
+.W60{
+	width:50%;
+	float: left;
+}
+.W10{
+	width:12.5%;
+	float: left;
+}
+.W13{
+	width:16.6666%;
+	float: left;
+}
+input[type=number] {
+    margin: 8px;
+    box-sizing: border-box;
+		font-size: 1.15rem;
+}
+@media screen and (max-width: 730px) {
+.HIDE{
+	display: none;
+}
+}
+#GID{
+	width: 50%;
+}

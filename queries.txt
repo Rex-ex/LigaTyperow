@@ -1,0 +1,139 @@
+INSERT INTO `ttypes`(`IDType`, `GameID`, `OwnerID`)VALUES 
+('',1, Maro)
+
+INSERT INTO `ttypes`(`IDType`, `GameID`, `OwnerID`)VALUES 
+('','1','Maro'),('','2','Maro'),('','3','Maro'),('','4','Maro'),('','5','Maro'),('','6','Maro'),('','7','Maro'),('','8','Maro'),('','9','Maro'),('','10','Maro'),('','11','Maro'),('','12','Maro'),('','13','Maro'),('','14','Maro'),('','15','Maro'),('','16','Maro'),('','17','Maro'),('','18','Maro'),('','19','Maro'),('','20','Maro'),('','21','Maro'),('','22','Maro'),('','23','Maro'),('','24','Maro'),('','25','Maro'),('','26','Maro'),('','27','Maro'),('','28','Maro'),('','29','Maro'),('','30','Maro'),('','31','Maro'),('','32','Maro'),('','33','Maro'),('','34','Maro'),('','35','Maro'),('','36','Maro'),('','37','Maro'),('','38','Maro'),('','39','Maro'),('','40','Maro'),('','41','Maro'),('','42','Maro'),('','43','Maro'),('','44','Maro'),('','45','Maro'),('','46','Maro'),('','47','Maro'),('','48','Maro');
+
+
+UPDATE ttypes
+SET ttypes.HomeType = '1', ttypes.AwayType = '2'
+WHERE ttypes.GameID = '2' AND ttypes.OwnerID = 'Rysiu';
+
+SELECT tgame.Date, tgame.IDGame, tgame.HomeTeam as 'Gospodarze', tgame.AwayTeam as 'Goœæ',
+  IFNULL(tgame.HomeGoal, '---') AS gol1, IFNULL(tgame.AwayGoal, '---') AS gol2, ttypes.HomeType, ttypes.AwayType
+  FROM ((tgame
+  INNER JOIN ttypes ON ttypes.GameID = tgame.IDGame)
+  INNER JOIN tplayers ON tplayers.Nick = ttypes.OwnerID)
+  ORDER BY tgame.IDGame;  
+         
+
+
+SELECT tgame.Date, tgame.IDGame, tgame.HomeTeam as 'Gospodarze', tgame.AwayTeam as 'Goœæ',
+  IFNULL(tgame.HomeGoal, '---') AS gol1, IFNULL(tgame.AwayGoal, '---') AS gol2
+  FROM tgame
+  ORDER BY tgame.IDGame;
+
+
+UPDATE tgame
+SET HomeTeam = 'Egipt'
+WHERE HomeTeam = '3';
+
+
+#JEA#
+SELECT tgame.IDGame, tteams.TeamName, tgame.Date
+FROM tgame
+INNER JOIN tteams ON tgame.HomeTeam = tteams.IDTeam;
+!!! To
+SELECT tgame.IDGame, tteams.TeamName as `Gospodarze`
+FROM tgame
+INNER JOIN tteams ON tgame.HomeTeam = tteams.IDTeam
+ORDER BY tgame.IDGame;
+!! i to !
+SELECT tteams.TeamName as `Goœcie`
+FROM tgame
+INNER JOIN tteams ON tgame.AwayTeam = tteams.IDTeam
+ORDER BY tgame.IDGame;
+
+
+
+
+
+1.
+SELECT tgame.IDGame, tgame.HomeTeam, tgame.AwayTeam
+FROM tgame, tteams
+INNER JOIN tgame
+ON tgame.HomeTeam = tteams.TeamName, tgame.AwayTeam = tteams.TeamName
+WHERE tgame.IDGame = tteams.IDTeam;
+2.
+SELECT tgame.IDGame, tgame.HomeTeam, tgame.AwayTeam
+FROM tgame, tteams
+INNER JOIN tgame
+ON tgame.HomeTeam = tteams.TeamName;
+3.
+SELECT tgame.IDGame, tgame.HomeTeam, tgame.AwayTeam
+FROM tgame
+INNER JOIN tteams
+ON tgame.HomeTeam = tteams.TeamName, tgame.AwayTeam = tteams.TeamName
+WHERE tgame.IDGame = tteams.IDTeam;
+4.
+SELECT tgame.IDGame, tgame.HomeTeam, tgame.AwayTeam
+FROM tgame
+INNER JOIN tteams
+ON tgame.IDGame = tteams.IDTeam;
+5.
+SELECT tgame.IDGame, tteams.TeamName
+FROM tgame
+INNER JOIN tteams
+ON tteams.IDTeam = tgame.IDGame;
+6.
+SELECT tgame.IDGame, tgame.HomeTeam
+FROM ((tgame
+INNER JOIN tteams ON tteams.IDTeam = tgame.IDGame)
+INNER JOIN tteams ON tteams.TeamName = tgame.HomeTeam);
+7.
+SELECT tgame.IDGame, tgame.HomeTeam
+FROM tgame
+INNER JOIN tteams ON tteams.IDTeam = tgame.IDGame AND tteams.TeamName = tgame.HomeTeam;
+8.
+SELECT tgame.IDGame, tgame.HomeTeam FROM tgame
+UNION
+SELECT tteams.IDTeam, tteams.TeamName FROM tteams;
+9.
+SELECT tgame.IDGame, tgame.HomeTeam, tgame.AwayTeam
+FROM tgame, tteams
+WHERE tgame.IDGame = tteams.IDTeam, tteams.TeamName = tgame.HomeTeam;
+10.
+SELECT tgame.IDGame, tgame.HomeTeam, tgame.AwayTeam
+FROM tgame, tteams
+WHERE tteams.IDTeam = tgame.HomeTeam AND tteams.IDTeam = tgame.AwayTeam;
+11.
+SELECT tgame.IDGame, tteams.TeamName, tteams.TeamName
+FROM tgame, tteams
+WHERE tteams.IDTeam = tgame.HomeTeam AND tteams.IDTeam = tgame.AwayTeam;
+12.
+SELECT tgame.IDGame, CONCAT(tgame.HomeTeam, tteams.TeamName), CONCAT(tgame.AwayTeam, tteams.TeamName)
+FROM tgame, tteams
+WHERE tgame.IDGame = tteams.IDTeam;
+
+
+
+
+
+
+
+
+
+
+
+SELECT g.IDGame, g.HomeTeam, g.AwayTeam
+FROM tgame AS g, tteams AS t
+INNER JOIN `g`
+ON `g.HomeTeam` = `t.TeamName`, `g.AwayTeam` = `t.TeamName`
+WHERE `g.IDGame` = `t.IDTeam`;
+*****
+
+SELECT g.IDGame, g.HomeTeam, g.AwayTeam
+FROM tgame AS g, tteams AS t
+WHERE g.IDGame = t.IDTeam, g.HomeTeam = t.TeamName, g.AwayTeam = t.TeamName;
+
+SELECT g.IDGame, g.HomeTeam, g.AwayTeam
+FROM tgame AS g, tteams AS t
+INNER JOIN g
+ON g.HomeTeam = t.TeamName, g.AwayTeam = t.TeamName
+WHERE g.IDGame = t.IDTeam;
+
+SELECT g.IDGame, g.HomeTeam, g.AwayTeam
+FROM tgame AS g, tteams AS t
+INNER JOIN tgame
+ON tgame.HomeTeam = tteams.TeamName, tgame.AwayTeam = tteams.TeamName
+WHERE tgame.IDGame = tteams.IDTeam;

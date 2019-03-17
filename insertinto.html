@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>INSERT INTO</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="Maro" />
+    <link rel='stylesheet' href='style.css' type='text/css' />
+</head>
+
+<body>
+	 <div id=show></div>
+
+    <script type="text/javascript">
+    var name = 'Rysiu';
+    var toShow = '';
+    var part1 = '';
+    var part2 = '';
+    var el = document.getElementById('show');
+    if (true){
+      insert();
+    }
+    function insert(){
+      part1 = "INSERT INTO `ttypes`(`IDType`, `GameID`, `OwnerID`) VALUES ";
+
+      for (var i = 49; i<=64; i++){
+      part2 += "('','"+i+"','"+name+"'), ";
+      };
+      toShow = part1 + part2;
+
+    }
+
+    el.innerHTML = toShow;
+
+
+
+    </script>
+</body>
+
+</html>
